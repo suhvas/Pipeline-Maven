@@ -2,7 +2,7 @@ node {
    // Mark the code checkout 'stage'....
    stage 'Checkout'
    
-   //git url: ''
+   //git url: 'https://github.com/suhvas/Pipeline-Maven.git'
 
 
    // Get the maven tool.
