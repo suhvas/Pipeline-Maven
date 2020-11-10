@@ -2,14 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                echo 'Building..'
+                echo 'Clone repository..'
+                git url: 'https://github.com/suhvas/Pipeline-Maven.git'
             }
         }
-        stage('Test') {
+        stage('Building') {
             steps {
-                echo 'Testing..'
+                echo 'Building..'
+                def mvnHome = tool 'M3'
+                sh "${mvnHome}/bin/mvn -Dmaven.test.failure.ignore clean package"
             }
         }
         stage('Deploy') {
